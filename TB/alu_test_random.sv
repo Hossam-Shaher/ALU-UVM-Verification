@@ -3,6 +3,7 @@
 
   typedef class alu_test_base;
   typedef class alu_sequence_simple;
+  typedef class alu_sequence_constrained_random;
 
   class alu_test_random extends alu_test_base;
 
@@ -48,5 +49,6 @@
     endtask: run_phase
     
   endclass: alu_test_random
+
 
 `endif //ALU_TEST_RANDOM_SV
