@@ -2,6 +2,7 @@
   `define ALU_SEQUENCE_CONSTRAINED_RANDOM_SV
 
   typedef class alu_seq_item_drv;
+  typedef class alu_sequence_simple;
 
   class alu_sequence_constrained_random extends uvm_sequence#(alu_seq_item_drv);
 
@@ -113,5 +114,6 @@
     endfunction: sub_overflow_f
 
   endclass: alu_sequence_constrained_random
+
 
 `endif //ALU_SEQUENCE_CONSTRAINED_RANDOM_SV
