@@ -31,7 +31,7 @@ This is a categorized list of SV files used to build this testbench.
 * alu_agent_config.sv
 * alu_agent.sv
 
-**coverage collector**
+**Coverage collector**
 * alu_coverage_collector.sv
 
 **Environment and environment configuration object**
