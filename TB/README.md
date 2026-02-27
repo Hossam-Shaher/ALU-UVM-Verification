@@ -39,9 +39,14 @@ This is a categorized list of SV files used to build this testbench.
 * alu_env.sv
 
 **Sequences**
-* alu_sequence_simple.sv
-* alu_sequence_constrained_random.sv
+* alu_sequence_random.sv
+* alu_sequence_a_x_b.sv
+* alu_sequence_overflow_f.sv
+* alu_sequence_merged.sv
 
 **Tests**
 * alu_test_base.sv
 * alu_test_random.sv
+* alu_test_a_x_b.sv
+* alu_test_overflow_f.sv
+* alu_test_merged.sv
