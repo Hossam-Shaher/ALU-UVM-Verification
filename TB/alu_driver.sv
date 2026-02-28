@@ -38,20 +38,20 @@
 
   //initialize
   task alu_driver:: initialize();
-    alu_vif.a		= 0;
-    alu_vif.b		= 0;
-    alu_vif.op_code = ADD;
-    alu_vif.reset	= 0;
+    alu_vif.a		<= 0;
+    alu_vif.b		<= 0;
+    alu_vif.op_code <= ADD;
+    alu_vif.reset	<= 0;
   endtask
 
   //drive
   task alu_driver:: drive(alu_seq_item_drv req);
     @(posedge alu_vif.clk);
     
-    alu_vif.a		= req.a;
-    alu_vif.b		= req.b;
-    alu_vif.op_code = req.op_code;
-    alu_vif.reset	= req.reset;    
+    alu_vif.a		<= req.a;
+    alu_vif.b		<= req.b;
+    alu_vif.op_code <= req.op_code;
+    alu_vif.reset	<= req.reset;    
     
     `uvm_info(this.get_type_name(), req.convert2string, UVM_LOW) 
   endtask: drive
