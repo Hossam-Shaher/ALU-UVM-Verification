@@ -24,7 +24,7 @@
       assert( item.randomize() with {
         op_code == ADD;
         //overflow condition in case of op_code == ADD
-        add_overflow_f(a, b) == 1;
+        ( a[N-1] && b[N-1] && !(a + b) ) || ( !a[N-1] && !b[N-1] && (a + b) ) == 1;
       } );
       finish_item(item);
       
@@ -32,26 +32,11 @@
       assert( item.randomize() with {
         op_code == SUB;
         //overflow condition in case of op_code == SUB
-        sub_overflow_f(a, b) == 1;
+        ( a[N-1] && !b[N-1] && !(a - b) ) || ( !a[N-1] && b[N-1] && (a - b) ) == 1;
       } );
       finish_item(item);
 
     endtask: body
-    
-    //auxiliary functions
-    //-------------------
-    
-    //return the LHS of "overflow condition in case of op_code == ADD"
-    function bit add_overflow_f(data_t a, data_t b);
-      data_t result = a + b;
-      return ( a[N-1] && b[N-1] && !result ) || ( !a[N-1] && !b[N-1] && result ) ;
-    endfunction: add_overflow_f
-
-    //return the LHS of "overflow condition in case of op_code == SUB"
-    function bit sub_overflow_f(data_t a, data_t b);
-      data_t result = a - b;
-      return ( a[N-1] && !b[N-1] && !result ) || ( !a[N-1] && b[N-1] && result ) ;
-    endfunction: sub_overflow_f
 
   endclass: alu_sequence_overflow_f
 
