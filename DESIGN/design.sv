@@ -17,45 +17,46 @@ module alu
   localparam AND = 2;
   localparam OR  = 3;
   
-  always_ff @(posedge clk) begin: always_blk
+  always @(posedge clk) begin: always_blk
     
     if(reset) begin
       
-      result = 0;
-      {zero_f, neg_f, c_out_f, overflow_f} = 0;
+      result <= 0;
+      {zero_f, neg_f, c_out_f, overflow_f} <= 0;
       
     end 
     
-    else begin
+    else
       
       case(op_code)
         ADD: begin
-                {c_out_f, result} = a + b;
-                overflow_f	= ( a[N-1] && b[N-1] && !result[N-1] ) || 
-                              ( !a[N-1] && !b[N-1] && result[N-1] ); 
+                {c_out_f, result} <= a + b;
+                overflow_f	<= 	( a[N-1] && b[N-1] && !result[N-1] ) || 
+                              	( !a[N-1] && !b[N-1] && result[N-1] ); 
           	 end
         SUB: begin
-                {c_out_f, result} = a - b;
-                overflow_f 	= ( a[N-1] && !b[N-1] && !result[N-1] ) || 
-                              ( !a[N-1] && b[N-1] && result[N-1] );         
+                {c_out_f, result} <= a - b;
+                overflow_f 	<= 	( a[N-1] && !b[N-1] && !result[N-1] ) || 
+                              	( !a[N-1] && b[N-1] && result[N-1] );         
              end
         AND: begin
-                result		= a & b; //bitwise and
-                c_out_f 	= 0;
-                overflow_f 	= 0;         
+                result		<= a & b; //bitwise and
+                c_out_f 	<= 0;
+                overflow_f 	<= 0;         
              end
         OR:  begin
-                result 		= a | b; //bitwise or
-                c_out_f 	= 0;
-                overflow_f 	= 0;         
+                result 		<= a | b; //bitwise or
+                c_out_f 	<= 0;
+                overflow_f 	<= 0;         
              end
         default: $error("undefined op_code: %b", op_code);
       endcase
-   
-      zero_f = &(~result);	//or, simply, zero_f = (result === 0);
-      neg_f	 = result[N-1];    
-    end   
-  
+
   end: always_blk
+  
+  always @(*) begin
+    zero_f 	= &(~result);	//or, simply, zero_f = (result === 0);
+    neg_f	= result[N-1];    
+  end   
   
 endmodule: alu
