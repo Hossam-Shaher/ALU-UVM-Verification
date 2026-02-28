@@ -1,7 +1,7 @@
 # UVM Testbench
 This is a categorized list of SV files used to build this testbench.
 
-**Top module**
+**Top-level module**
 * testbench.sv
 
 **ALU package**
