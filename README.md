@@ -4,7 +4,7 @@ Also, four output flags are provided (zero_f, neg_f, c_out_f, and overflow_f). T
 
 In this project, the ALU is designed, modeled, and verified using the **SystemVerilog HDVL** and the **Universal Verification Methodology (UVM)**.
 
-## Design
+## Design Under Test (DUT)
 
 The following figure shows the ALU as a black box.
 
