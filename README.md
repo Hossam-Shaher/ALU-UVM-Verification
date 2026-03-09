@@ -41,6 +41,7 @@ The following figures show the **structure of the UVM testbench**.
 
 <img width="446.5" height="522.2" alt="image" src="https://github.com/user-attachments/assets/e3c54a92-8dbe-49a5-99e4-f45f878aa778" />
 
+<img width="1833" height="461" alt="image" src="https://github.com/user-attachments/assets/67bcdffa-744b-46db-9af7-e0eb49977e02" />
 
 The following figure shows **UML class diagrams of the UVM tests** used to verify the DUT.
 
